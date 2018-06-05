@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour {
 	private Text _levelUpText;		
 	[SerializeField]
 	private Text _moneyText;
+	[SerializeField]
+	private GameObject _victoryPanel;
 	private Animator _meshAnimator;
 	private float _xp;
 	private float _earnedXp;
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 		//Initialize variables
 		_animator = GetComponent<Animator>();
 		_data = GameObject.Find("Data Holder").GetComponent<DataHolder>();
+		_victoryPanel = GameObject.Find("Victory Panel");
 
 		_meshAnimator = gameObject.transform.GetChild(0).GetComponent<Animator>();
 
@@ -36,7 +39,10 @@ public class PlayerController : MonoBehaviour {
 		_xp = _data.player.xp;
 		_earnedXp = _data.player.GetXP(_data.enemy);
 
-		_animator.speed = _data.player.speed;
+		_animator.speed = _data.player.speed;		
+
+		//Generate a loot drop in case the player is victorious
+		GenerateLootDrop();
 	}
 
 	void Update () {
@@ -55,8 +61,9 @@ public class PlayerController : MonoBehaviour {
 		if (_data.enemy.hp <= 0) {
 			_freeze = true;			
 			_manager.enabled = false;
-			_xpTimer += Time.deltaTime;
+			// _xpTimer += Time.deltaTime;
 			_data.player.RestoreHP();			
+			_victoryPanel.SetActive(true);
 
 			//Only call this once
 			// if (!_moneyDrop) {
@@ -67,17 +74,17 @@ public class PlayerController : MonoBehaviour {
 			// 	Invoke("ResetMoneyText", 2f);
 			// }
 
-			_levelUpSlider.gameObject.SetActive(true);
-			_levelUpSlider.maxValue = _data.player.nextLevel;
-			_levelUpSlider.value = Mathf.Lerp(_xp, _xp + _earnedXp, _xpTimer / 2);
+			// _levelUpSlider.gameObject.SetActive(true);
+			// _levelUpSlider.maxValue = _data.player.nextLevel;
+			// _levelUpSlider.value = Mathf.Lerp(_xp, _xp + _earnedXp, _xpTimer / 2);
 
-			_data.player.xp = _xp + _earnedXp;
+			// _data.player.xp = _xp + _earnedXp;
 
-			if (_data.player.CheckLevelUp()) {				
-				_levelUpText.text = "LEVEL UP!";
-				_xp = _data.player.xp;
-				Invoke("ResetLevelUpText", 1f);
-			}
+			// if (_data.player.CheckLevelUp()) {				
+			// 	_levelUpText.text = "LEVEL UP!";
+			// 	_xp = _data.player.xp;
+			// 	Invoke("ResetLevelUpText", 1f);
+			// }
 		}
 
 		if (!_freeze) {
@@ -144,4 +151,18 @@ public class PlayerController : MonoBehaviour {
 		SceneManager.LoadScene(0);	
 	}
 	
+	private void GenerateLootDrop() {
+		var content = GameObject.Find("Content");
+		var random = Random.Range(1, 3);
+	
+		for (int i = 0; i < random; i++) {
+			var loot = Instantiate(new GameObject(), content.transform.position, content.transform.rotation);
+			loot.AddComponent<Image>();
+			//TODO(tdamron): Add a random sprite to the loot image
+			loot.transform.position = new Vector3(loot.transform.position.x, loot.transform.position.y - (150f * i), loot.transform.position.z);
+			loot.transform.parent = content.transform;
+		}
+
+		_victoryPanel.SetActive(false);
+	}
 }

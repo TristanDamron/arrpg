@@ -130,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &97252156
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2972,12 +2972,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player:
     hp: 0
+    defense: 0
+    speed: 0
     damage: 0
     level: 0
     xp: 0
     nextLevel: 0
     defaultHp: 0
-    money: 0
   models:
   - {fileID: 1000010905284148, guid: 4601a7a32ca0706429c6494df42a0da3, type: 2}
   - {fileID: 1000012031303842, guid: 8c58af9c359af10458ec99511f7b371d, type: 2}

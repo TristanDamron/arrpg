@@ -48,7 +48,6 @@ public class EnemyController : MonoBehaviour {
 			_meshAnimator.Play("Death");
 			_message.text = "VICTORY!";
 			_freeze = true;
-			Invoke("LoadMapScene", 5f);
 		} else if (_data.player.hp <= 0) {
 			_freeze = true;
 		}
