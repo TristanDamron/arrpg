@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Stats : MonoBehaviour {
+	private Limbs _limb;
+	private Heads _head;
+	private Torsos _torso;
+	private Armor _armor;
+	private Weapons _weapon;
+
 	public enum Limbs {
 		Frog,
 		Grasshopper,
@@ -45,7 +51,8 @@ public class Stats : MonoBehaviour {
 		Leaves,
 		Bubble,
 		Tube,
-		WaterGun
+		WaterGun,
+		Net
 	};
 
 	public enum Weapons {
@@ -58,5 +65,5 @@ public class Stats : MonoBehaviour {
 		BottleRocket,
 		Duster,
 		Glove
-	};
+	};	
 }

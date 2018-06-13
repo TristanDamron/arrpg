@@ -62,8 +62,8 @@ public class MonsterAssembler : MonoBehaviour {
 	private void AddLimbs(Object limbs) {
 		var llegIndex = _bones.FindIndex(trans => trans.name == "LLeg_Anchor");
 		var rlegIndex = _bones.FindIndex(trans => trans.name == "RLeg_Anchor");
-		var larmIndex = _bones.FindIndex(trans => trans.name == "LBicep_Anchor");
-		var rarmIndex = _bones.FindIndex(trans => trans.name == "RBicep_Anchor");
+		var larmIndex = _bones.FindIndex(trans => trans.name == "LArm_Anchor");
+		var rarmIndex = _bones.FindIndex(trans => trans.name == "RArm_Anchor");
 		
 		var lleg = (GameObject)Instantiate(limbs, _bones[llegIndex]);
 		var rleg = (GameObject)Instantiate(limbs, _bones[rlegIndex]);
@@ -74,5 +74,4 @@ public class MonsterAssembler : MonoBehaviour {
 	void Update() {
 		Assemble();
 	}
-
 }
