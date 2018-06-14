@@ -11,9 +11,11 @@ public class Stats : MonoBehaviour {
 	private static float _hp;
 	private static float _damage;
 	private static float _defense;
+	private static int _speed;
 
 
 	public enum Limbs {
+		None,
 		Frog,
 		Grasshopper,
 		Robot,
@@ -23,6 +25,7 @@ public class Stats : MonoBehaviour {
 	};
 
 	public enum Heads {
+		None,
 		Butterfly,
 		GIJimmy,
 		Robot,
@@ -36,6 +39,7 @@ public class Stats : MonoBehaviour {
 	};
 
 	public enum Torsos {
+		None,
 		Robot,
 		Gameboy,
 		Clock,
@@ -49,6 +53,7 @@ public class Stats : MonoBehaviour {
 	};
 
 	public enum Armor {
+		None,
 		Shell,
 		Lego,
 		Mug,
@@ -60,6 +65,7 @@ public class Stats : MonoBehaviour {
 	};
 
 	public enum Weapons {
+		None,
 		Screw,
 		Plug,
 		Pencil,
@@ -87,40 +93,56 @@ public class Stats : MonoBehaviour {
 		_armor = armor;
 	}		
 
-	private void CalculateStats() {
+	public static void CalculateStats() {
 		switch(_limb) {
 			case Limbs.Frog:
+				_speed += 3;
+				_defense -= 1f;
 				break;
 			case Limbs.Grasshopper:
+				_speed += 2;
 				break;			
 			case Limbs.Robot:
+				_speed -= 1;
+				_defense += 2f;
 				break;		
 			case Limbs.Tentacle:
+			 	_speed -= 1;
 				break;			
 			case Limbs.Unicycle:
+				_speed += 4;
+				_defense -= 2f;
 				break;			
 			case Limbs.Levitation:
+				_speed = -1;
 				break;									
 		}
 
 		switch (_head) {
 			case Heads.Butterfly:
+				_defense += 2f;
 				break;
 			case Heads.GIJimmy:
 				break;
 			case Heads.Robot:
+				_defense += 1f;
 				break;
 			case Heads.Brain:
+				_defense -= 1f;
 				break;
 			case Heads.Popsicle:
 				break;
 			case Heads.Fish:
+				_speed += 2;
 				break;
 			case Heads.Frog:
+				_speed += 1;
+				_defense -= 1f;
 				break;
 			case Heads.Doll:
 				break;
 			case Heads.InvisibleMan:
+				_speed += 3;
 				break;
 			case Heads.Rabbit:
 				break;				
@@ -128,66 +150,128 @@ public class Stats : MonoBehaviour {
 
 		switch (_torso) {
 			case Torsos.Robot:
+				_defense += 2f;
 				break;
 			case Torsos.Gameboy:
+				_defense += 1f;
 				break;
 			case Torsos.Clock:
+				_defense += 1f;
 				break;
 			case Torsos.Apple:
+				_defense -= 1f;
+				_speed += 1;
 				break;
 			case Torsos.Battery:
+				_defense += 1f;
+				_speed += 2;
 				break;
 			case Torsos.PlushToy:
+				_defense -= 2f;
+				_speed += 3;
 				break;
 			case Torsos.Bug:
+				_defense -= 1f;
+				_speed += 2;
 				break;
 			case Torsos.UrinalCake:
+				_defense -= 1f;
 				break;
 			case Torsos.Toaster:
+				_defense += 3;
 				break;
 			case Torsos.Cookie:
+				_defense += 1f;
 				break;				
 		}
 
 		switch (_armor) {
 			case Armor.Shell:
+				_defense += 3f;
+				_speed -= 2;
 				break;
 			case Armor.Lego:
+				_defense += 1f;
+				_speed -= 1;
 				break;
 			case Armor.Mug:
+				_defense += 1f;
+				_speed -= 1;
 				break;
 			case Armor.Leaves:
+				_defense += 1f;
 				break;
 			case Armor.Bubble:
+				_defense += 1f;			
 				break;
 			case Armor.Tube:
+				_defense += 2f;			
 				break;
 			case Armor.WaterGun:
+				_defense += 1f;			
 				break;
 			case Armor.Net:
+				_defense += 1f;			
 				break;				
 		}
 
 		switch (_weapon) {
 			case Weapons.Screw: 
+				_damage += 4f;
+				_speed -= 2;				
 				break;
-			case Weapons.Plug: 
+			case Weapons.Plug:
+				_damage += 1f;			 
 				break;
 			case Weapons.Pencil: 
+				_damage += 5f;			
+				_speed -= 2;
 				break;
 			case Weapons.Taser: 
+				_damage += 3f;			
 				break;
 			case Weapons.LazerSword: 
+				_damage += 3f;	
+				_speed += 1;		
 				break;
 			case Weapons.Flamer: 
+				_damage += 3f;
 				break;
 			case Weapons.BottleRocket: 
+				_damage += 3f;			
 				break;
 			case Weapons.Duster: 
+				_damage += 1f;			
 				break;
 			case Weapons.Glove: 
-				break;
-				
+				_damage += 1f;			
+				break;				
 		}
+
+		if (_speed < 0) {
+			_speed = 0;
+		}
+
+		if (_defense <= 0f) {
+			_defense = 1f;
+		}
+
+		_hp = _defense * 3;		
+	}
+
+	public static float GetDamage() {
+		return _damage;
+	}
+
+	public static float GetHP() {
+		return _hp;
+	}
+
+	public static int GetSpeed() {
+		return _speed;
+	}
+
+	public static float GetDefense() {
+		return _defense;
 	}
 }

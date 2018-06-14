@@ -28,131 +28,157 @@ public class MonsterAssembler : MonoBehaviour {
 			switch (name) {
 				case "FrogLegs":
 					limbs = Resources.Load("FrogLegs");	
+					Stats.SetLimb(Stats.Limbs.Frog);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();
 					AddLimbs(limbs);
 					break;
 				case "Grasshopper":
 					limbs = Resources.Load("Grasshopper");	
+					Stats.SetLimb(Stats.Limbs.Grasshopper);					
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();
 					AddLimbs(limbs);
 					break;
 				case "RobotLegs":
 					limbs = Resources.Load("RobotLegs");	
+					Stats.SetLimb(Stats.Limbs.Robot);					
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();
 					AddLimbs(limbs);
 					break;					
 				case "Tentacle":
 					limbs = Resources.Load("Tentacle");	
+					Stats.SetLimb(Stats.Limbs.Tentacle);					
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();
 					AddLimbs(limbs);
 					break;					
 				case "Unicycle":
 					limbs = Resources.Load("Unicycle");	
+					Stats.SetLimb(Stats.Limbs.Unicycle);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();
 					AddLimbs(limbs);
 					break;					
 				case "Levitation":
 					limbs = Resources.Load("Levitation");	
+					Stats.SetLimb(Stats.Limbs.Levitation);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();
 					AddLimbs(limbs);
 					break;										
 				case "RobotTorso":
 					torso = Resources.Load("RobotTorso");
+					Stats.SetTorso(Stats.Torsos.Robot);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddTorso(torso);
 					break;
 				case "Gameboy":
 					torso = Resources.Load("Gameboy");
+					Stats.SetTorso(Stats.Torsos.Gameboy);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddTorso(torso);
 					break;
 				case "Clock":
 					torso = Resources.Load("Clock");
+					Stats.SetTorso(Stats.Torsos.Clock);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddTorso(torso);
 					break;
 				case "Apple":
 					torso = Resources.Load("Apple");
+					Stats.SetTorso(Stats.Torsos.Apple);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddTorso(torso);
 					break;
 				case "Battery":
 					torso = Resources.Load("Battery");
+					Stats.SetTorso(Stats.Torsos.Battery);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddTorso(torso);
 					break;
 				case "PlushToy":
 					torso = Resources.Load("PlushToy");
+					Stats.SetTorso(Stats.Torsos.PlushToy);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddTorso(torso);
 					break;
 				case "Bug":
 					torso = Resources.Load("Bug");
+					Stats.SetTorso(Stats.Torsos.Bug);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddTorso(torso);
 					break;
 				case "Urinalcake":
 					torso = Resources.Load("UrinalCake");
+					Stats.SetTorso(Stats.Torsos.UrinalCake);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddTorso(torso);
 					break;
 				case "Toaster":
 					torso = Resources.Load("Toaster");
+					Stats.SetTorso(Stats.Torsos.Toaster);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddTorso(torso);
 					break;
 				case "Cookie":
 					torso = Resources.Load("Cookie");
+					Stats.SetTorso(Stats.Torsos.Cookie);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddTorso(torso);
 					break;					
 				case "Butterfly":
 					head = Resources.Load("Butterfly");
+					Stats.SetHead(Stats.Heads.Butterfly);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddHead(head);				
 					break;
 				case "GIJimmy":
 					head = Resources.Load("GIJimmy");
+					Stats.SetHead(Stats.Heads.GIJimmy);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddHead(head);				
 					break;	
 				case "RobotHead":
 					head = Resources.Load("RobotHead");
+					Stats.SetHead(Stats.Heads.Robot);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddHead(head);				
 					break;									
 				case "Brain":
 					head = Resources.Load("Brain");
+					Stats.SetHead(Stats.Heads.Brain);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddHead(head);				
 					break;					
 				case "Popsicle":
 					head = Resources.Load("Popsicle");
+					Stats.SetHead(Stats.Heads.Popsicle);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddHead(head);				
 					break;					
 				case "Fish":
 					head = Resources.Load("Fish");
+					Stats.SetHead(Stats.Heads.Fish);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddHead(head);				
 					break;					
 				case "FrogHead":
 					head = Resources.Load("FrogHead");
+					Stats.SetHead(Stats.Heads.Frog);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddHead(head);				
 					break;					
 				case "Doll":
 					head = Resources.Load("Doll");
+					Stats.SetHead(Stats.Heads.Doll);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddHead(head);				
 					break;
 				case "InvisibleMan":
 					head = Resources.Load("InvisibleMan");
+					Stats.SetHead(Stats.Heads.InvisibleMan);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddHead(head);				
 					break;					
 				case "Rabbit":
 					head = Resources.Load("Rabbit");
+					Stats.SetHead(Stats.Heads.Rabbit);
 					_monsterRig.GetComponentInChildren<ParticleSystem>().Play();					
 					AddHead(head);				
 					break;																				
@@ -285,6 +311,15 @@ public class MonsterAssembler : MonoBehaviour {
 				t.localRotation = Quaternion.identity;
 			}
 		}				
+	}
+
+	[ContextMenu("Calculate")]
+	public void Calc() {
+		Stats.CalculateStats();
+		Debug.Log("HP: " + Stats.GetHP() +
+				" Damage: " + Stats.GetDamage() + 
+				" Defense: " + Stats.GetDefense() +
+				" Speed: " + Stats.GetSpeed());
 	}
 
 	void Update() {
