@@ -10,7 +10,7 @@ public class Stats : MonoBehaviour {
 	private static Weapons _weapon;
 	private static float _hp;
 	private static float _damage;
-	private static float _defense;
+	private static int _defense;
 	private static int _speed;
 
 
@@ -97,21 +97,21 @@ public class Stats : MonoBehaviour {
 		switch(_limb) {
 			case Limbs.Frog:
 				_speed += 3;
-				_defense -= 1f;
+				_defense -= 1;
 				break;
 			case Limbs.Grasshopper:
 				_speed += 2;
 				break;			
 			case Limbs.Robot:
 				_speed -= 1;
-				_defense += 2f;
+				_defense += 2;
 				break;		
 			case Limbs.Tentacle:
 			 	_speed -= 1;
 				break;			
 			case Limbs.Unicycle:
 				_speed += 4;
-				_defense -= 2f;
+				_defense -= 2;
 				break;			
 			case Limbs.Levitation:
 				_speed = -1;
@@ -120,15 +120,15 @@ public class Stats : MonoBehaviour {
 
 		switch (_head) {
 			case Heads.Butterfly:
-				_defense += 2f;
+				_defense += 2;
 				break;
 			case Heads.GIJimmy:
 				break;
 			case Heads.Robot:
-				_defense += 1f;
+				_defense += 1;
 				break;
 			case Heads.Brain:
-				_defense -= 1f;
+				_defense -= 1;
 				break;
 			case Heads.Popsicle:
 				break;
@@ -137,7 +137,7 @@ public class Stats : MonoBehaviour {
 				break;
 			case Heads.Frog:
 				_speed += 1;
-				_defense -= 1f;
+				_defense -= 1;
 				break;
 			case Heads.Doll:
 				break;
@@ -150,68 +150,68 @@ public class Stats : MonoBehaviour {
 
 		switch (_torso) {
 			case Torsos.Robot:
-				_defense += 2f;
+				_defense += 2;
 				break;
 			case Torsos.Gameboy:
-				_defense += 1f;
+				_defense += 1;
 				break;
 			case Torsos.Clock:
-				_defense += 1f;
+				_defense += 1;
 				break;
 			case Torsos.Apple:
-				_defense -= 1f;
+				_defense -= 1;
 				_speed += 1;
 				break;
 			case Torsos.Battery:
-				_defense += 1f;
+				_defense += 1;
 				_speed += 2;
 				break;
 			case Torsos.PlushToy:
-				_defense -= 2f;
+				_defense -= 2;
 				_speed += 3;
 				break;
 			case Torsos.Bug:
-				_defense -= 1f;
+				_defense -= 1;
 				_speed += 2;
 				break;
 			case Torsos.UrinalCake:
-				_defense -= 1f;
+				_defense -= 1;
 				break;
 			case Torsos.Toaster:
 				_defense += 3;
 				break;
 			case Torsos.Cookie:
-				_defense += 1f;
+				_defense += 1;
 				break;				
 		}
 
 		switch (_armor) {
 			case Armor.Shell:
-				_defense += 3f;
+				_defense += 3;
 				_speed -= 2;
 				break;
 			case Armor.Lego:
-				_defense += 1f;
+				_defense += 1;
 				_speed -= 1;
 				break;
 			case Armor.Mug:
-				_defense += 1f;
+				_defense += 1;
 				_speed -= 1;
 				break;
 			case Armor.Leaves:
-				_defense += 1f;
+				_defense += 1;
 				break;
 			case Armor.Bubble:
-				_defense += 1f;			
+				_defense += 1;			
 				break;
 			case Armor.Tube:
-				_defense += 2f;			
+				_defense += 2;			
 				break;
 			case Armor.WaterGun:
-				_defense += 1f;			
+				_defense += 1;			
 				break;
 			case Armor.Net:
-				_defense += 1f;			
+				_defense += 1;			
 				break;				
 		}
 
@@ -252,8 +252,8 @@ public class Stats : MonoBehaviour {
 			_speed = 0;
 		}
 
-		if (_defense <= 0f) {
-			_defense = 1f;
+		if (_defense <= 0) {
+			_defense = 1;
 		}
 
 		_hp = _defense * 3;		
@@ -271,7 +271,7 @@ public class Stats : MonoBehaviour {
 		return _speed;
 	}
 
-	public static float GetDefense() {
+	public static int GetDefense() {
 		return _defense;
 	}
 }

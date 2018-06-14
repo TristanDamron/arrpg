@@ -44,6 +44,11 @@ public class DataHolder : MonoBehaviour {
 	}
 
 	public void SaveData() {
+		player.damage = Stats.GetDamage();
+		player.speed = Stats.GetSpeed();
+		player.defense = Stats.GetDefense();
+		player.hp = Stats.GetDefense();
+		
 		var json = JsonUtility.ToJson(player);
 		var masterPath = Application.persistentDataPath;		
 		var path = Path.Combine(masterPath, "playerData.json");
